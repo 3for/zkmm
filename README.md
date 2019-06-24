@@ -160,6 +160,15 @@ yarn install && \
 tsc
 ```
 
+If using the node v10.1.0 edition, the `circom` and `circomlib` edition should be updated to avoid `UnhandledPromiseRejectionWarning`error.
+```
+rm package-lock.json
+//change the version of circom and circomlib in package.json file.
+
+    "circom": "0.0.30",
+    "circomlib": "0.0.8",
+``` 
+
 ### 2. Compile the circuit
 
 ```
