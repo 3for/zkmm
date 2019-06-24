@@ -154,6 +154,7 @@ instructions will use `yarn`.
 ### 1. Install dependencies
 
 ```
+npm install -g typescript
 cd mastermind && \
 yarn install && \
 tsc
