@@ -11,8 +11,8 @@
   "dependencies": {
     "argparse": "^1.0.10",
     "big-integer": "^1.6.36",
-    "circom": "0.0.24",
-    "circomlib": "0.0.5",
+    "circom": "0.0.30",
+    "circomlib": "0.0.8",
     "file-system": "^2.2.2",
     "jest": "^23.6.0",
     "snarkjs": "^0.1.9",
