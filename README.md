@@ -169,6 +169,7 @@ rm package-lock.json
     "circomlib": "0.0.8",
 ``` 
 
+
 ### 2. Compile the circuit
 
 ```
@@ -228,29 +229,48 @@ yarn build:prod
 
 You may also run the frontend development server using `yarn dev`.
 
+
+
+Use python edition `>=3.6` for `ImportError: No module named 'secrets'`
+```
+sudo apt update
+sudo apt install software-properties-common
+sudo add-apt-repository ppa:deadsnakes/ppa
+sudo apt update
+sudo apt install python3.7
+
+```
+
 In a different terminal, set up `virtualenv`:
 
 ```
 cd backend && \
-virtualenv -p python3 venv && \
+virtualenv -p python3.7 venv && \
 source venv/bin/activate && \
-pip3 install -r requirements.txt
+pip3.7 install -r requirements.txt
 ```
 
 Next, run the backend server in a separate terminal. Note that you have to
 set the `NODE_PATH` environment variable to a Node binary of version 10 or
 above.
+```
+# whereis node
+node: /usr/bin/node /usr/include/node /opt/node-v8.10.0-linux-x64/bin/node /usr/share/man/man1/node.1.gz
+
+# export NODE_PATH=/usr/bin/node
+```
 
 ```
 export NODE_PATH='/path/to/node/10+' 
 ```
 
+
 ```
 cd zkmm/backend && \
 source venv/bin/activate && \
-python3 manage.py migrate && \
-python3 manage.py collectstatic -c --noinput && \
-python3 manage.py runserver
+python3.7 manage.py migrate && \
+python3.7 manage.py collectstatic -c --noinput && \
+python3.7 manage.py runserver
 ```
 
 Launch [http://localhost:9000](http://localhost:9000) for the development
@@ -290,7 +310,7 @@ node build/mastermind/src/generateverifier.js \
 
 ```
 
-Next, generate the contract call parameters and paste the output into Remix:
+Next, generate the contract call parameters and paste the output into Remix(Select `0.4.18` compiler version in Remix for `ParserError: Expected token LBrace got reserved keyword 'Pure'`):
 
 ```
 node build/mastermind/src/generatecall.js \
